@@ -14,7 +14,7 @@ MainWindow::MainWindow(QWidget *parent) :
     if(!db.open()){
         ui->label->setText("failed to open the database");
     }else{
-        ui->label->setText("connected...");
+        ui->label->setText("connected to database");
     }
 }
 
@@ -27,6 +27,7 @@ void MainWindow::on_pushButton_clientlogin_clicked()
 {
     QString username = ui->lineEdit_username->text();
     QString password = ui->lineEdit_password->text();
+    
 
     if(username == "client" && password == "test"){
         QMessageBox::information(this,"Login","Welcome to client page");
