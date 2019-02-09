@@ -1,0 +1,19 @@
+#include "staffwindow.h"
+#include "ui_staffwindow.h"
+
+staffwindow::staffwindow(QWidget *parent) :
+    QMainWindow(parent),
+    ui(new Ui::staffwindow)
+{
+    ui->setupUi(this);
+}
+
+staffwindow::~staffwindow()
+{
+    delete ui;
+}
+
+void staffwindow::on_pushButton_load_pet_clicked()
+{
+    //connect to database, display info
+}
