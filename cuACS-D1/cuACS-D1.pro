@@ -26,12 +26,15 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
         main.cpp \
         mainwindow.cpp \
-    staffwindow.cpp
+    staffwindow.cpp \
+    clientwindow.cpp
 
 HEADERS += \
         mainwindow.h \
-    staffwindow.h
+    staffwindow.h \
+    clientwindow.h
 
 FORMS += \
         mainwindow.ui \
-    staffwindow.ui
+    staffwindow.ui \
+    clientwindow.ui

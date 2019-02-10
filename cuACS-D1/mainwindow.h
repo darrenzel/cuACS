@@ -5,7 +5,8 @@
 #include <QtSql>
 #include <QDebug>
 #include <QFileInfo>
-
+#include <QSqlQuery>
+#include "staffwindow.h"
 namespace Ui {
 class MainWindow;
 }
@@ -25,6 +26,7 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
+    QSqlDatabase db;
 };
 
 #endif // MAINWINDOW_H
