@@ -8,10 +8,7 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
-      db = QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName("/home/student/Desktop/cuACS/data/database.db");
-
-    if(!db.open()){
+    if(!conopen()){
         ui->label->setText("failed to open the database");
     }else{
         ui->label->setText("connected to database");
@@ -28,13 +25,15 @@ void MainWindow::on_pushButton_clientlogin_clicked()
     QString username = ui->lineEdit_username->text();
     QString password = ui->lineEdit_password->text();
 
-    if(!db.isOpen()){
+    if(!conopen()){
         qDebug()<<"Failed to open the database";
         return;
     }
+    conopen();
 
     QSqlQuery query;
-    if(query.exec("select * from client where username='"+username+"' and password='"+password+"'")){
+    query.prepare("select * from client where username='"+username+"' and password='"+password+"'");
+    if(query.exec()){
         int count=0;
         while(query.next()){
             count++;
@@ -59,19 +58,22 @@ void MainWindow::on_pushButton_stafflogin_clicked()
     QString username = ui->lineEdit_username->text();
     QString password = ui->lineEdit_password->text();
 
-    if(!db.isOpen()){
+    if(!conopen()){
         qDebug()<<"Failed to open the database";
         return;
     }
+    conopen();
 
     QSqlQuery query;
-    if(query.exec("select * from staff where username='"+username+"' and password='"+password+"'")){
+    query.prepare("select * from staff where username='"+username+"' and password='"+password+"'");
+    if(query.exec()){
         int count=0;
         while(query.next()){
             count++;
         }
         if(count==1){
              QMessageBox::information(this,"Login","Welcome to staff page");
+             conclose();
              this->hide();
              staffwindow staff;
              staff.setModal(true);

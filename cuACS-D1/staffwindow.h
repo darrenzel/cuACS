@@ -6,6 +6,7 @@
 #include <QDebug>
 #include <QFileInfo>
 #include <QSqlQuery>
+#include "mainwindow.h"
 namespace Ui {
 class staffwindow;
 }
@@ -24,6 +25,7 @@ private slots:
 private:
     Ui::staffwindow *ui;
     QSqlDatabase db;
+    void displaypet();
 
 };
 

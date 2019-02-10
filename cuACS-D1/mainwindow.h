@@ -1,4 +1,4 @@
-#ifndef MAINWINDOW_H
+﻿#ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
 #include <QMainWindow>
@@ -14,7 +14,24 @@ class MainWindow;
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
+public:
+    QSqlDatabase db;
+    void conclose(){
+        db.close();
+        db.removeDatabase(QSqlDatabase::defaultConnection);
+    }
+    bool conopen(){
+        db = QSqlDatabase::addDatabase("QSQLITE");
+      db.setDatabaseName("/home/student/Desktop/cuACS/data/database.db");
 
+      if(!db.open()){
+         qDebug()<<("failed to open the database");
+         return false;
+      }else{
+         qDebug()<<("connected to database");
+         return true;
+      }
+    }
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
@@ -26,7 +43,6 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
-    QSqlDatabase db;
 };
 
 #endif // MAINWINDOW_H
