@@ -44,6 +44,11 @@ void MainWindow::on_pushButton_clientlogin_clicked()
              //staffwindow staff;
 
              //staff.show();
+             conclose();
+             this->hide();
+             clientwindow client;
+             client.setModal(true);
+             client.exec();
         }else if(count<1){
             QMessageBox::warning(this,"Login","username or password is incorrect");
         }else{

@@ -2,6 +2,11 @@
 #define CLIENTWINDOW_H
 
 #include <QDialog>
+#include <QtSql>
+#include <QDebug>
+#include <QFileInfo>
+#include <QSqlQuery>
+#include "mainwindow.h"
 
 namespace Ui {
 class clientwindow;
@@ -17,6 +22,10 @@ public:
 
 private:
     Ui::clientwindow *ui;
+    void displaypet();
+    QSqlDatabase db;
+
+
 };
 
 #endif // CLIENTWINDOW_H

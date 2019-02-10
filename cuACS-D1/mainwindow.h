@@ -7,6 +7,7 @@
 #include <QFileInfo>
 #include <QSqlQuery>
 #include "staffwindow.h"
+#include "clientwindow.h"
 namespace Ui {
 class MainWindow;
 }
