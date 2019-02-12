@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>488</width>
-    <height>452</height>
+    <width>855</width>
+    <height>487</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,10 +17,23 @@
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>10</y>
-     <width>471</width>
+     <y>40</y>
+     <width>831</width>
      <height>431</height>
     </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>10</y>
+     <width>251</width>
+     <height>17</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>current available pets:</string>
    </property>
   </widget>
  </widget>

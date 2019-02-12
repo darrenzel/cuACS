@@ -7,7 +7,11 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-
+    QPixmap bg("/home/student/Desktop/cuACS/data/loginbg.jpg");
+    bg= bg.scaled(this->size(),Qt::IgnoreAspectRatio);
+    QPalette palette;
+    palette.setBrush(QPalette::Background,bg);
+    this->setPalette(palette);
     if(!conopen()){
         ui->label->setText("failed to open the database");
     }else{
@@ -39,7 +43,7 @@ void MainWindow::on_pushButton_clientlogin_clicked()
             count++;
         }
         if(count==1){
-             QMessageBox::information(this,"Login","Welcome to client page");
+            // QMessageBox::information(this,"Login","Welcome to client page");
              //this->hide();
              //staffwindow staff;
 
@@ -77,7 +81,7 @@ void MainWindow::on_pushButton_stafflogin_clicked()
             count++;
         }
         if(count==1){
-             QMessageBox::information(this,"Login","Welcome to staff page");
+            // QMessageBox::information(this,"Login","Welcome to staff page");
              conclose();
              this->hide();
              staffwindow staff;
